@@ -10,16 +10,16 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios'
 export default {
-  name: "home",
-  data: function() {
-    return { posts: null };
+  name: 'home',
+  data: function () {
+    return { posts: null }
   },
-  mounted: function() {
+  mounted: function () {
     axios
-      .get("https://jsonplaceholder.typicode.com/posts")
-      .then(response => (this.posts = response.data));
+      .get('https://jsonplaceholder.typicode.com/posts')
+      .then(response => (this.posts = response.data))
   }
-};
+}
 </script>

@@ -8,18 +8,18 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios'
 export default {
-  name: "postdetail",
-  data: function() {
-    return { post: null };
+  name: 'postdetail',
+  data: function () {
+    return { post: null }
   },
-  mounted: function() {
+  mounted: function () {
     axios
       .get(
-        "https://jsonplaceholder.typicode.com/posts/" + this.$route.params.post
+        'https://jsonplaceholder.typicode.com/posts/' + this.$route.params.post
       )
-      .then(response => (this.post = response.data));
+      .then(response => (this.post = response.data))
   }
-};
+}
 </script>
