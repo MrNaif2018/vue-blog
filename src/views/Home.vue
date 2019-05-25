@@ -1,18 +1,25 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ul>
+      <div v-for="post in posts">
+        <a :href="'/posts/'+post.id">{{post.title}}</a>
+        <p>{{post.body}}</p>
+      </div>
+    </ul>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import axios from "axios";
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
+  name: "home",
+  data: function() {
+    return { posts: null };
+  },
+  mounted: function() {
+    axios
+      .get("https://jsonplaceholder.typicode.com/posts")
+      .then(response => (this.posts = response.data));
   }
-}
+};
 </script>
